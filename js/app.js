@@ -42,8 +42,7 @@ function desencriptar() {
 function encriptar() {
     let texto = document.getElementById("input-text").value;
     let textoEncriptado = texto
-        .replace(/[aeiou]/g, (match) => claves[match])
-        .replace(/[^a-z]/g, '');
+        .replace(/[aeiou]/g, (match) => claves[match]);
     let output = document.getElementById("output-text");
     output.style.visibility = 'visible';
     let waitingImage = document.getElementById("waiting-image");
