@@ -5,7 +5,19 @@ let claves = {
     'o': 'ober',
     'u': 'ufat'
 };
+const patternErrorMessage = "Solo letras minusculas no mayusculas ni simbolos"
 
+function validarTexto(){
+    let input_text = document.getElementById("Input-text").value;
+    let pattern = /^[a-z]*$/;
+    let res;
+    if(!pattern.test(input_text)){
+        res = false;
+    }else{
+        res = true;
+    }
+    return res;
+}
 
 function copiar() {
     let output = document.getElementById("output-text");
@@ -34,9 +46,12 @@ function desencriptar() {
     let mainMessage = document.getElementById("main-message");
     mainMessage.hidden = true;
     let copyButton = document.getElementById("copy-button");
-    
-    output.value = textoDesencriptado;
-    copyButton.hidden = false;
+    if(validarTexto()){
+        output.value = textoDesencriptado;
+        copyButton.hidden = false;
+    }else{
+        output.value = patternErrorMessage;
+    }
 }
 
 function encriptar() {
@@ -52,7 +67,11 @@ function encriptar() {
     let mainMessage = document.getElementById("main-message");
     mainMessage.hidden = true;
     let copyButton = document.getElementById("copy-button");
-    copyButton.hidden = false;
     output.style.height = '70vh';
-    output.value = textoEncriptado;
+    if(validarTexto()){
+        output.value = textoEncriptado;
+        copyButton.hidden = false;
+    }else{
+        output.value = patternErrorMessage;
+    }
 }
