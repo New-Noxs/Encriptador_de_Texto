@@ -8,7 +8,7 @@ let claves = {
 const patternErrorMessage = "Solo letras minusculas no mayusculas ni simbolos"
 
 function validarTexto(){
-    let input_text = document.getElementById("Input-text").value;
+    let input_text = document.getElementById("input-text").value;
     let pattern = /^[a-z]*$/;
     let res;
     if(!pattern.test(input_text)){
@@ -72,6 +72,6 @@ function encriptar() {
         output.value = textoEncriptado;
         copyButton.hidden = false;
     }else{
-        output.value = patternErrorMessage;
+        alert(patternErrorMessage);
     }
 }
